@@ -1,0 +1,15 @@
+version: "2.24.6"
+services:
+  calcgame:
+    build: ../jurij-bozic
+    container_name: calcgame_container
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+  test:
+    container_name: jurij-bozic
+    build: ../jurij-bozic
+    environment:
+      - CI=true
+    command: npm test
